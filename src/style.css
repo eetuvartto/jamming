@@ -1,8 +1,57 @@
 body {
-    background-color: gray;
+    box-sizing: border-box;
+    background-color: darkslategray;
+    margin: 0;
+}
+
+#main {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+header {
+    background-color: darkslateblue;
+    margin: 0;
+    width: 100%;
 }
 
 header h1 {
     text-align: center;
     font-size: 3rem;
+    margin: 0;
 }
+
+#search {
+    display: flex;
+    padding: 2rem;
+    flex-direction: column;
+    align-items: space-around;
+    border: 1px solid red;
+}
+
+#searchbox {
+    padding: 0.5rem 4rem;
+    border-radius: 4rem;
+}
+
+#buttondiv {
+    display: flex;
+    justify-content: center;
+}
+
+#searchbutton {
+    margin: 0;
+    padding: 0.5rem 2rem;
+    border-radius: 2rem;
+}
+
+#content {
+    display: flex;
+    justify-content: center;
+    border: 1px solid red;
+}
+
+
