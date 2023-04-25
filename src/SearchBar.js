@@ -1,16 +1,31 @@
 import React from 'react';
+import SearchResults from './SearchResults';
 
 function SearchBar() {
+
+    const [searchValue, setSearchValue] = React.useState('');
+    const [finalValue, setFinalValue] = React.useState('');
+
+    function handleChange(e) {
+        setSearchValue(e.target.value);
+    }
+
+    function handleClick() {
+        setFinalValue(searchValue);
+        setSearchValue('');
+    }
+
     return (
-        <div>
+        <>
             <form id="search">
-                <input type="text" name="search" id="searchbox" />
+                <input type="text" name="search" id="searchbar" value={searchValue} onChange={handleChange} />
                 <br/>
                 <div id="buttondiv">
-                    <button id="searchbutton">Search</button>
+                    <button type="button" id="searchbutton" onClick={handleClick} >Search</button>
                 </div>
             </form>
-        </div>
+            <SearchResults searchValue={finalValue} />
+        </>
     )
 }
 

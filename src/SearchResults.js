@@ -1,9 +1,13 @@
 import React from 'react';
+import Playlist from './Playlist';
 
-function SearchResults() {
+function SearchResults(props) {
     return (
-        <div>
-            <p>search results</p>
+        <div id="content">
+            <div id="result-div">
+                <p>{props.searchValue}</p>
+            </div>
+            <Playlist />
         </div>
     )
 }

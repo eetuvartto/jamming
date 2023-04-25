@@ -2,7 +2,7 @@ import React from 'react';
 
 function Playlist() {
     return (
-        <div>
+        <div id="playlist-div">
             <p>playlist</p>
         </div>
     )
