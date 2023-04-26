@@ -56,9 +56,47 @@ header h1 {
 }
 
 #result-div, #playlist-div {
-    border: 1px solid black;
     width: 500px;
     height: 700px;
     margin: 20px 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
+.track {
+    width: 90%;
+    height: 15%;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border-radius: 20px;
+    margin: 5px 0;
+}
+
+.info {
+    margin: 0 20px;
+}
+
+.name {
+    font-size: 1.2rem;
+}
+
+.artist {
+    font-size: 1rem;
+}
+
+.card-button-div {
+    margin: 0 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.card-button {
+    padding: 0 2px;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: gray;
+}
