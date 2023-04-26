@@ -1,6 +1,6 @@
 body {
     box-sizing: border-box;
-    background-color: darkslategray;
+    background-color: rgba(0,0,0,0.9);
     margin: 0;
 }
 
@@ -12,7 +12,7 @@ body {
 }
 
 header {
-    background-color: darkslateblue;
+    background-color: rgb(30, 215, 96);
     margin: 0;
     width: 100%;
 }
@@ -43,10 +43,15 @@ header h1 {
     justify-content: center;
 }
 
-#searchbutton {
-    margin: 0;
+button {
+    background-color: rgb(30, 215, 96);
+    margin: 10px 0;
     padding: 0.5rem 2rem;
     border-radius: 2rem;
+}
+
+button:hover {
+    cursor: pointer;
 }
 
 #content {
@@ -56,6 +61,7 @@ header h1 {
 }
 
 #result-div, #playlist-div {
+    color: rgb(30, 215, 96);
     width: 500px;
     margin: 20px 50px;
     display: flex;
