@@ -1,5 +1,6 @@
 import React from 'react';
 import Track from './Track';
+import AddList from './AddList';
 
 function SearchResults(props) {
 
@@ -26,16 +27,19 @@ function SearchResults(props) {
         }
     ];
     
+    //Arrays of objects
     const [cards, setCards] = React.useState(testArray);
     const [playlistCards, setPlaylistCards] = React.useState([]);
 
+    //Creates track cards from array of objects with data for the cards
+    //onClick sends data to playlist and removes the card from the search results
     function createTrack(cardArray) {
         return cardArray.map(card => <Track
             name={card.name}
             artist={card.artist}
             id={card.id}
             key={card.key}
-            text={"►"}
+            text={"Add"}
             onClick={() => {
                 setCards(cards.filter(a => a.id !== card.id));
                 const newCard = cards.filter(a => a.id === card.id);
@@ -44,13 +48,14 @@ function SearchResults(props) {
             />)
     }
 
+    //Same but for the playlist
     function returnTrack(cardArray) {
         return cardArray.map(card => <Track
             name={card.name}
             artist={card.artist}
             id={card.id}
             key={card.key}
-            text={"◄"}
+            text={"Clear"}
             onClick={() => {
                 setPlaylistCards(playlistCards.filter(a => a.id !== card.id));
                 const newCard = playlistCards.filter(a => a.id === card.id);
@@ -68,7 +73,7 @@ function SearchResults(props) {
             <div id="playlist-div">
                 <h2>Playlist</h2>
                 {returnTrack(playlistCards)}
-                {playlistCards.length > 0 && <button id="upload-button">Upload to Spotify</button>}
+                <AddList list={playlistCards} />
             </div> 
         </div>
     )

@@ -4,14 +4,13 @@ import SearchResults from './SearchResults';
 function SearchBar() {
 
     const [searchValue, setSearchValue] = React.useState('');
-    const [finalValue, setFinalValue] = React.useState('');
 
     function handleChange(e) {
         setSearchValue(e.target.value);
     }
 
     function handleClick() {
-        setFinalValue(searchValue);
+        alert(searchValue);
         setSearchValue('');
     }
 
@@ -24,7 +23,7 @@ function SearchBar() {
                     <button type="button" id="searchbutton" onClick={handleClick} >Search</button>
                 </div>
             </form>
-            <SearchResults searchValue={finalValue} />
+            <SearchResults />
         </>
     )
 }
