@@ -1,4 +1,5 @@
 import React from 'react';
+import Spotify from './Spotify';
 
 function AddList(props) {
 
@@ -8,8 +9,15 @@ function AddList(props) {
         setPlaylistName(e.target.value);
     }
 
-    function handleClick() {
-        alert(playlistName);
+    async function handleClick() {
+        if (playlistName) {
+            const trackUris = [];
+            for (const song of props.list) {
+                trackUris.push(song.uri);
+            }
+            await Spotify.savePlaylist(playlistName, trackUris);
+            props.setList([]);
+        }
         setPlaylistName('');
     }
 

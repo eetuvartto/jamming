@@ -3,6 +3,7 @@ const redirectUri = 'http://localhost:3000/'; // Have to add this to your accept
 let accessToken;
 
 const Spotify = {
+
   getAccessToken() {
     if (accessToken) {
       return accessToken;

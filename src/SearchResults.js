@@ -47,7 +47,7 @@ function SearchResults(props) {
             <div id="playlist-div">
                 <h2>Playlist</h2>
                 {returnTrack(props.playlistCards)}
-                <AddList list={props.playlistCards} />
+                <AddList list={props.playlistCards} setList={props.setPlaylistCards} />
             </div> 
         </div>
     )
