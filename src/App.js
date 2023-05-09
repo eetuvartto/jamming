@@ -9,7 +9,7 @@ function App() {
   const [searchValue, setSearchValue] = React.useState('');
   const [cards, setCards] = React.useState([]);
   const [playlistCards, setPlaylistCards] = React.useState([]);
-  const [auth, setAuth] = React.useState(false);
+  const [token, setToken] = React.useState(Spotify.token);
 
   function handleChange(e) {
     setSearchValue(e.target.value);
@@ -22,17 +22,17 @@ function App() {
     }
   }
 
-  function handleAuth() {
-    Spotify.getAccessToken();
-    setAuth(true)
+  async function handleAuth() {
+    await Spotify.getAccessToken();
+    setToken(Spotify.token);
   }
 
   return (
     <div id="main">
       <Header />
-      {!auth && <button id="auth-button" onClick={handleAuth}>Authenticate</button>}
-      {auth && <SearchBar handleChange={handleChange} handleClick={handleClick} value={searchValue} />}
-      {auth && <SearchResults cards={cards} setCards={setCards} playlistCards={playlistCards} setPlaylistCards={setPlaylistCards} />}
+      {!token && <button id="auth-button" onClick={handleAuth}>Authenticate</button>}
+      {token && <SearchBar handleChange={handleChange} handleClick={handleClick} value={searchValue} />}
+      {token && <SearchResults cards={cards} setCards={setCards} playlistCards={playlistCards} setPlaylistCards={setPlaylistCards} />}
     </div>
   );
 }

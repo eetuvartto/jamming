@@ -4,8 +4,11 @@ let accessToken;
 
 const Spotify = {
 
+  token: '',
+
   getAccessToken() {
     if (accessToken) {
+      Spotify.token = accessToken;
       return accessToken;
     }
 
@@ -16,6 +19,7 @@ const Spotify = {
       const expiresIn = Number(expiresInMatch[1]);
       window.setTimeout(() => accessToken = '', expiresIn * 1000);
       window.history.pushState('Access Token', null, '/'); // This clears the parameters, allowing us to grab a new access token when it expires.
+      Spotify.token = accessToken;
       return accessToken;
     } else {
       const accessUrl = `https://accounts.spotify.com/authorize?client_id=${clientId}&response_type=token&scope=playlist-modify-public&redirect_uri=${redirectUri}`;
