@@ -4,12 +4,18 @@ import SearchBar from './SearchBar';
 import SearchResults from './SearchResults';
 import Spotify from './Spotify';
 
+//Main body for the app that handles the search and keeps track of the cards for search results and playlist
 function App() {
 
-  const [searchValue, setSearchValue] = React.useState('');
-  const [cards, setCards] = React.useState([]);
-  const [playlistCards, setPlaylistCards] = React.useState([]);
-  const [token, setToken] = React.useState(Spotify.token);
+  const [searchValue, setSearchValue] = React.useState(''); //For search input
+  const [cards, setCards] = React.useState([]); //For search results
+  const [playlistCards, setPlaylistCards] = React.useState([]); //For chosen playlist
+
+  //Makes authentication call at startup
+  //Needed for fixing a bug where app reloads after first interaction
+  if (!Spotify.token) {
+    Spotify.getAccessToken();
+  }
 
   function handleChange(e) {
     setSearchValue(e.target.value);
@@ -22,17 +28,11 @@ function App() {
     }
   }
 
-  async function handleAuth() {
-    await Spotify.getAccessToken();
-    setToken(Spotify.token);
-  }
-
   return (
     <div id="main">
       <Header />
-      {!token && <button id="auth-button" onClick={handleAuth}>Authenticate</button>}
-      {token && <SearchBar handleChange={handleChange} handleClick={handleClick} value={searchValue} />}
-      {token && <SearchResults cards={cards} setCards={setCards} playlistCards={playlistCards} setPlaylistCards={setPlaylistCards} />}
+      <SearchBar handleChange={handleChange} handleClick={handleClick} value={searchValue} />
+      <SearchResults cards={cards} setCards={setCards} playlistCards={playlistCards} setPlaylistCards={setPlaylistCards} />
     </div>
   );
 }

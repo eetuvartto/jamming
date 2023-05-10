@@ -4,8 +4,7 @@ import AddList from './AddList';
 
 function SearchResults(props) {
 
-
-    //Creates track cards from array of objects with data for the cards
+    //Creates track cards (components) from array of objects with data for the cards
     //onClick sends data to playlist and removes the card from the search results
     function createTrack(cardArray) {
         return cardArray.map(card => <Track
@@ -22,7 +21,7 @@ function SearchResults(props) {
             />)
     }
 
-    //Same but for the playlist
+    //Same but for the playlist (i.e. reversed)
     function returnTrack(cardArray) {
         return cardArray.map(card => <Track
             name={card.name}

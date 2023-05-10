@@ -1,8 +1,10 @@
 import React from 'react';
 import Spotify from './Spotify';
 
+//Handles adding playlsits and displaying playlist name and add to Spotify button.
 function AddList(props) {
-
+    
+    //For input field
     const [playlistName, setPlaylistName] = React.useState('');
 
     function handleChange(e) {
@@ -11,6 +13,7 @@ function AddList(props) {
 
     async function handleClick() {
         if (playlistName) {
+            //Add playlist to spotify needs only a list of uris
             const trackUris = [];
             for (const song of props.list) {
                 trackUris.push(song.uri);
