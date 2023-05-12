@@ -5,7 +5,7 @@ This app is build using React. It is my first project so it's probably quite cru
 so there is some boilerplate code remaining. Since at the time of creating this project, I had very little experience working with APIs and the spotify authentication system
 is a little bit tricky (at least from a novices viewpoint, like mine), the src/Spotify (used to interact with the Spotify API) is from the codecademys model solution. I have
 however made a little tweak, so it is better compatible with my pre-existing code (added token to Spotify object for authentication at launch). It is probably apparent at first glance, 
-but minimal time was spent for the ui design aspect (it's kinda ugly).
+but minimal time was spent for the ui design aspect.
 
 Overall this was an excellent learning opportunity for React, JavaScript and software development in general. I feel I really got the graps of the React basics and have more confidence
 for future projects.
