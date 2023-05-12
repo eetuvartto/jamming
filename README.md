@@ -9,3 +9,5 @@ but minimal time was spent for the ui design aspect.
 
 Overall this was an excellent learning opportunity for React, JavaScript and software development in general. I feel I really got the graps of the React basics and have more confidence
 for future projects.
+
+Deployed at https://evjamming.netlify.app/
